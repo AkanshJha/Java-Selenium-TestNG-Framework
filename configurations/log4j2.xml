@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
-       <Properties>
+	<Properties>
 		<Property name="basePath">./logs</Property>
 	</Properties>
- 
-  <Appenders>
-      <RollingFile name="File" fileName="${basePath}/Execution_Logs.log" filePattern="${basePath}/Execution_Logs-%d{yyyy-MM-dd}.log">
-     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-      <SizeBasedTriggeringPolicy size="500" />
-          </RollingFile>
-    <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </Console>
-  </Appenders>
-  <Loggers>
-    <Root level="trace">
-      <AppenderRef ref="File"/>
-    </Root>
-  </Loggers>
+	<Appenders>
+		<PatternLayout
+			pattern="%d{dd-MMM-yyyy HH:mm:ss.SSS}  [%t]  %-5level %logger{36}  -  %msg%n" />
+		<RollingFile name="File"
+			fileName="${basePath}/Execution_Logs.log"
+			filePattern="${basePath}/Execution_Logs-%d{yyyy-MM-dd HH:mm:ss:SS}.log">
+			<PatternLayout
+				pattern="%d{dd-MMM-yyyy HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{dd-MMM-yyyy HH:mm:ss.SSS} [%t] %-5level %logger{36} 
+			- %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
 </Configuration>
