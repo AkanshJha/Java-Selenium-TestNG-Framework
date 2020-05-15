@@ -1,13 +1,17 @@
 package com.appname.testcases;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,7 +19,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
@@ -24,129 +27,203 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  *
  */
 public class BaseClass {
+
 	public static WebDriver driver;
 	public static Properties prop = new Properties();
 	public String applicationURL = "";
 	public String userName = "";
 	public String password = "";
-	public String currentDirectory = System.getProperty("user.dir");
+	public static String currentDirectory = System.getProperty("user.dir");
 	WebDriverWait explitic_wait;
 	// FileInputStream fis;
 	private static Logger log = LogManager.getLogger(BaseClass.class.getName());
-	
 
 	/**
-	 * 	
+	 * 
 	 * @throws IOException
 	 */
 	@BeforeClass
+	//@BeforeTest
 	public void setUp() throws IOException {
-		loadPropertiesFile();
+		String propFilePath = currentDirectory + "\\configurations\\data.properties";
+		prop = loadPropertiesFile(propFilePath);
 		String requiredBrowser = prop.getProperty("browser");
-		int implicitWaitTime = Integer.valueOf(prop.getProperty("implicit_Wait_value"));
-		int explicitWaitTime = Integer.valueOf(prop.getProperty("explicit_wait"));
-		applicationURL = prop.getProperty("url");
-		userName = prop.getProperty("userName");
-		password = prop.getProperty("password");
-		
-		
-		//invoking the required browser
+		int implicitWaitTime = 5; // Default Value
+		int explicitWaitTime = 10; // Default Value
+
+		// invoking the required browser
 		invokeRequiredBrowser(requiredBrowser);
-		
-		//maximizing browser window
+
+		// maximizing browser window
 		driver.manage().window().maximize();
 		log.debug("The browser window is maximized.");
-		
-		//setting implicit wait value
+
+		implicitWaitTime = getIntegerPropertyValue(prop, "implicit_wait_time");
+		if (implicitWaitTime != -1) {
+			log.debug("Setting Implicit wait to " + implicitWaitTime + " seconds for the execution.");
+		} else {
+			implicitWaitTime = 5;
+			log.warn("Setting Implicit wait to default value " + implicitWaitTime
+					+ " seconds for the execution. Please update the properties file if you want to update this time.");
+		}
+		// setting implicit wait value
 		driver.manage().timeouts().implicitlyWait(implicitWaitTime, TimeUnit.SECONDS);
-		log.debug("Implicit wait is set to "+implicitWaitTime+" seconds for the execution.");
+
+		explicitWaitTime = getIntegerPropertyValue(prop, "explicit_wait_time");
+		if (explicitWaitTime != -1) {
+			log.debug("Setting Explicit wait to " + explicitWaitTime + " seconds for the execution.");
+		} else {
+			explicitWaitTime = 10;
+			log.warn("Setting Explicit wait to default value " + explicitWaitTime
+					+ " seconds for the execution. Please update the properties file if you want to update this time.");
+		}
+		// setting explicit wait
+		explitic_wait = new WebDriverWait(driver, explicitWaitTime);
+
+		applicationURL = getStringPropertyValue(prop, "application_url");
+		if (applicationURL.equals("") && applicationURL == null && applicationURL.isEmpty()) {
+			log.error(
+					"Application URL is Blank/Null. Please provide the URL correctly in .properties file.\nTerminating the execution.");
+			System.exit(0);
+		}
+		userName = getStringPropertyValue(prop, "userName");
+		password = getStringPropertyValue(prop, "password");
 
 		// setting explicit wait
 		explitic_wait = new WebDriverWait(driver, explicitWaitTime);
-		log.debug("Explicit wait is set to "+explicitWaitTime+" seconds for the execution.");
+
 	}
 
 	/*
-	 * This method will be called after each test case class is executed.
-	 * This method is used to kill the driver instantiation.
-	 * This method will be closing all the opened browser windows.
+	 * This method will be called after each test case class is executed. This
+	 * method is used to kill the driver instantiation. This method will be closing
+	 * all the opened browser windows.
 	 */
 	@AfterClass
+	//@AfterTest
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(2000);
 		log.debug("Tearing Down the Class.");
 		log.debug("Closing all the opened browsers.");
 		try {
-		driver.quit();
-		}
-		catch(Exception e) {
+			driver.quit();
+		} catch (Exception e) {
 			log.error("Error occured while closing all the browsers.");
 			log.debug("Execution finished.");
 		}
 	}
-	
+
 	/**
-	 * @author Akansh Jha
-	 * This method will be opening the given required browser
-	 * @param browserName : It is the browser name, for which the driver will be instantiated.
+	 * @author Akansh Jha This method will be opening the given required browser
+	 * @param browserName : It is the browser name, for which the driver will be
+	 *                    instantiated.
 	 */
 	private void invokeRequiredBrowser(String browserName) {
 		try {
-		if(browserName.equals("chrome")) {	
-			//System.setProperty("webdriver.chrome.driver",currentDirectory+"\\driver\\chromedriver.exe");
-			log.debug("Fetching the Chrome driver from WebDriverManager.");
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			log.debug("Instantiating the Chrome Driver.");
-		}
-		else if(browserName.equals("firefox")) {
-			//System.setProperty("webdriver.gecko.driver", currentDirectory+"\\driver\\geckodriver.exe");
-			log.debug("Fetching the Firefox driver from WebDriverManager.");
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-			log.debug("Instantiating the Firefox Driver.");
-		}
-		else if(browserName.equals("ie")) {
-			//System.setProperty("webdriver.ie.driver", currentDirectory+"\\driver\\iedriverserver.exe");
-			log.debug("Fetching the Internet Explorer driver from WebDriverManager.");
-			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
-			log.debug("Instantiating the Internet Explorer Driver.");
+			if (browserName.equals("chrome")) {
+				// System.setProperty("webdriver.chrome.driver",currentDirectory+"\\driver\\chromedriver.exe");
+				log.debug("Fetching the Chrome driver from WebDriverManager.");
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+				log.debug("Instantiating the Chrome Driver.");
+			} else if (browserName.equals("firefox")) {
+				// System.setProperty("webdriver.gecko.driver",
+				// currentDirectory+"\\driver\\geckodriver.exe");
+				log.debug("Fetching the Firefox driver from WebDriverManager.");
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
+				log.debug("Instantiating the Firefox Driver.");
+			} else if (browserName.equals("ie")) {
+				// System.setProperty("webdriver.ie.driver",
+				// currentDirectory+"\\driver\\iedriverserver.exe");
+				log.debug("Fetching the Internet Explorer driver from WebDriverManager.");
+				WebDriverManager.iedriver().setup();
+				driver = new InternetExplorerDriver();
+				log.debug("Instantiating the Internet Explorer Driver.");
 
-		}
-		else {
-			log.warn("Browser value is not given or incorrect in properties file. Please check.\nRunning on Chrome Browser by default.");
-			//System.setProperty("webdriver.chrome.driver",currentDirectory+"\\driver\\chromedriver.exe");
-			log.debug("Fetching the Chrome driver from WebDriverManager.");
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			log.debug("Instantiating the Chrome Driver.\n");
-		}
-		}
-		catch(Exception e) {
+			} else {
+				log.warn(
+						"Browser value is not given or incorrect in properties file. Please check.\nRunning on Chrome Browser by default.");
+				// System.setProperty("webdriver.chrome.driver",currentDirectory+"\\driver\\chromedriver.exe");
+				log.debug("Fetching the Chrome driver from WebDriverManager.");
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+				log.debug("Instantiating the Chrome Driver.\n");
+			}
+		} catch (Exception e) {
 			log.error("Error occured while fetching/instantiating the browser driver. Please check.", e);
 			log.fatal("Terminating the whole execution.\n");
 			System.exit(0);
 		}
 	}
-	
-	private void loadPropertiesFile() {
+
+	public Properties loadPropertiesFile(String propertiesFilePath) {
+		Properties properties = new Properties();
 		try {
-			FileInputStream fis = new FileInputStream(currentDirectory+"\\configurations\\data.properties");
-			prop.load(fis);
-		}
-		catch (FileNotFoundException e) {
-			log.debug(e.getMessage());
-			log.error("Properties File is not available in '"+currentDirectory+"/configurations/' folder. Please place the file in this location.", e);
-		}
-		catch(IOException e) {
-			log.debug(e.getMessage());
+			FileInputStream fis = new FileInputStream(propertiesFilePath);
+			properties.load(fis);
+		} catch (FileNotFoundException e) {
+			// log.debug(e.getMessage());
+			log.error("Properties File is not available in '" + propertiesFilePath
+					+ " folder. Please place the file in this location.", e);
+		} catch (IOException e) {
+			// log.debug(e.getMessage());
 			log.error("Could not read the file. Please make sure properties file is ready to be used.", e);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			log.fatal("Some unexpected error occured. Please make sure properties file is ready to be used.", e);
 		}
-		
-		
+
+		return properties;
+	}
+	
+	/**
+	 * 
+	 * @param property : Properties class object
+	 * @param propertyName : name of the property, you want to extract int value of
+	 * @return the property value.
+	 */
+	public int getIntegerPropertyValue(Properties property, String propertyName) {
+		int result = -1;
+		try {
+			result = Integer.valueOf(property.getProperty(propertyName));
+			log.debug("'" + result + "' value is fetched for property '" + propertyName + "'.");
+			return result;
+		} catch (NumberFormatException e) {
+			log.error("We fetched an invalid value for '" + propertyName
+					+ "' property. Please provide the valid integer value for this property. Please check both the Property Name and its value are correct.", e);
+			return result;
+		}
+
+	}
+	
+	/**
+	 * 
+	 * @param property : Properties class object
+	 * @param propertyName : name of the property, you want to extract string value of
+	 * @return the property value.
+	 */
+	public String getStringPropertyValue(Properties property, String propertyName) {
+		String result = null;
+		result = property.getProperty(propertyName);
+		if (result.equals("") && result.isEmpty() && result == null) {
+			log.warn("'" + result + "' value is fetched for property '" + propertyName
+					+ "'. This may cause failure of test cases. Please check both the Property Name and its value are correct.");
+		} else {
+			log.debug("'" + result + "' value is fetched for property '" + propertyName + "'.");
+		}
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param testCaseName
+	 * @throws Exception
+	 */
+	public static String getScreenshotForGivenTestCase(String testCaseName) throws Exception {
+		TakesScreenshot sc = (TakesScreenshot) driver;
+		File source = sc.getScreenshotAs(OutputType.FILE);
+		String destination = currentDirectory+"//reports//screenshots//"+testCaseName+".png";
+		FileUtils.copyFile(source, new File(destination));
+		return destination;
 	}
 }

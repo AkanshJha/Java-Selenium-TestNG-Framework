@@ -16,6 +16,12 @@ public class ExcelUtils {
 	public static XSSFWorkbook workbook;
 	public static XSSFSheet sheet;
 	
+	/**
+	 * 
+	 * @param workBookPath - Absolute path of the Workbook/Excel file.
+	 * @param sheetName - Name of the sheet in given workbook
+	 * @return XSSFSheet object, obtained using given sheet name.
+	 */
 	public XSSFSheet getSheetBySheetName(String workBookPath, String sheetName) {
 		FileInputStream fis = null;
 		try {
@@ -55,8 +61,13 @@ public class ExcelUtils {
 		return sheet;
 	}
 	
-	
-	public XSSFSheet getSheetByIndex(String workBookPath, int index) {
+	/**
+	 * 
+	 * @param workBookPath - Absolute path of the Workbook/Excel file.
+	 * @param sheetName - Index of the sheet(starting from 0) in given workbook.
+	 * @return XSSFSheet object, obtained using given sheet index.
+	 */
+	public XSSFSheet getSheetByIndex(String workBookPath, int sheetIndex) {
 		FileInputStream fis = null;
 		try {
 			fis = new FileInputStream(workBookPath);
@@ -83,27 +94,38 @@ public class ExcelUtils {
 		}
 		
 		try {
-			sheet = workbook.getSheetAt(index);
+			sheet = workbook.getSheetAt(sheetIndex);
 		}
 		catch(NullPointerException e) {
 			log.error("NullPointerException occured while getting the sheet name. Please check.", e);
 		}
 		catch(Exception e) {
-			log.error("No sheet available with on index '"+index+"' in the execel file. Please verify.", e);	
+			log.error("No sheet available with on index '"+sheetIndex+"' in the execel file. Please verify.", e);	
 		}
 		return sheet;
 	}
 	
+	/**
+	 * 
+	 * @param sheetObject - XSSFSheet object.
+	 * @return the count of Rows in the sheet.
+	 */
 	public int getRowsCountInSheet(XSSFSheet sheetObject) {
 		int rowNumbers = 0;
 		rowNumbers = sheetObject.getLastRowNum();
 		return rowNumbers;
 	}
 	
+	/**
+	 * 
+	 *  * @param sheetObject - XSSFSheet object.
+	 * @return the count of columns in the sheet.
+	 */
 	public int getColumnCountInSheet(XSSFSheet sheetObject) {
 		int columnNumbers = 0;
 		columnNumbers = sheetObject.getRow(0).getLastCellNum();
 		return columnNumbers;
 	}
+	
 
 }
