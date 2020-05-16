@@ -1,8 +1,6 @@
 package com.appname.testcases;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +15,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.appname.utilities.ReadPropertiesUtils;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
@@ -42,11 +43,11 @@ public class BaseClass {
 	 * 
 	 * @throws IOException
 	 */
-	@BeforeClass
-	//@BeforeTest
+	//@BeforeClass
+	@BeforeTest
 	public void setUp() throws IOException {
-		String propFilePath = currentDirectory + "\\configurations\\data.properties";
-		prop = loadPropertiesFile(propFilePath);
+		String propFilePath = currentDirectory + "\\configurations\\ApplicationData.properties";
+		prop = ReadPropertiesUtils.loadPropertiesFile(propFilePath);
 		String requiredBrowser = prop.getProperty("browser");
 		int implicitWaitTime = 5; // Default Value
 		int explicitWaitTime = 10; // Default Value
@@ -58,7 +59,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		log.debug("The browser window is maximized.");
 
-		implicitWaitTime = getIntegerPropertyValue(prop, "implicit_wait_time");
+		implicitWaitTime = ReadPropertiesUtils.getIntegerPropertyValue(prop, "implicit_wait_time");
 		if (implicitWaitTime != -1) {
 			log.debug("Setting Implicit wait to " + implicitWaitTime + " seconds for the execution.");
 		} else {
@@ -69,7 +70,7 @@ public class BaseClass {
 		// setting implicit wait value
 		driver.manage().timeouts().implicitlyWait(implicitWaitTime, TimeUnit.SECONDS);
 
-		explicitWaitTime = getIntegerPropertyValue(prop, "explicit_wait_time");
+		explicitWaitTime = ReadPropertiesUtils.getIntegerPropertyValue(prop, "explicit_wait_time");
 		if (explicitWaitTime != -1) {
 			log.debug("Setting Explicit wait to " + explicitWaitTime + " seconds for the execution.");
 		} else {
@@ -80,14 +81,14 @@ public class BaseClass {
 		// setting explicit wait
 		explitic_wait = new WebDriverWait(driver, explicitWaitTime);
 
-		applicationURL = getStringPropertyValue(prop, "application_url");
+		applicationURL = ReadPropertiesUtils.getStringPropertyValue(prop, "application_url");
 		if (applicationURL.equals("") && applicationURL == null && applicationURL.isEmpty()) {
 			log.error(
 					"Application URL is Blank/Null. Please provide the URL correctly in .properties file.\nTerminating the execution.");
 			System.exit(0);
 		}
-		userName = getStringPropertyValue(prop, "userName");
-		password = getStringPropertyValue(prop, "password");
+		userName = ReadPropertiesUtils.getStringPropertyValue(prop, "userName");
+		password = ReadPropertiesUtils.getStringPropertyValue(prop, "password");
 
 		// setting explicit wait
 		explitic_wait = new WebDriverWait(driver, explicitWaitTime);
@@ -99,8 +100,8 @@ public class BaseClass {
 	 * method is used to kill the driver instantiation. This method will be closing
 	 * all the opened browser windows.
 	 */
-	@AfterClass
-	//@AfterTest
+	//@AfterClass
+	@AfterTest
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(2000);
 		log.debug("Tearing Down the Class.");
@@ -157,66 +158,11 @@ public class BaseClass {
 		}
 	}
 
-	public Properties loadPropertiesFile(String propertiesFilePath) {
-		Properties properties = new Properties();
-		try {
-			FileInputStream fis = new FileInputStream(propertiesFilePath);
-			properties.load(fis);
-		} catch (FileNotFoundException e) {
-			// log.debug(e.getMessage());
-			log.error("Properties File is not available in '" + propertiesFilePath
-					+ " folder. Please place the file in this location.", e);
-		} catch (IOException e) {
-			// log.debug(e.getMessage());
-			log.error("Could not read the file. Please make sure properties file is ready to be used.", e);
-		} catch (Exception e) {
-			log.fatal("Some unexpected error occured. Please make sure properties file is ready to be used.", e);
-		}
-
-		return properties;
-	}
 	
 	/**
 	 * 
-	 * @param property : Properties class object
-	 * @param propertyName : name of the property, you want to extract int value of
-	 * @return the property value.
-	 */
-	public int getIntegerPropertyValue(Properties property, String propertyName) {
-		int result = -1;
-		try {
-			result = Integer.valueOf(property.getProperty(propertyName));
-			log.debug("'" + result + "' value is fetched for property '" + propertyName + "'.");
-			return result;
-		} catch (NumberFormatException e) {
-			log.error("We fetched an invalid value for '" + propertyName
-					+ "' property. Please provide the valid integer value for this property. Please check both the Property Name and its value are correct.", e);
-			return result;
-		}
-
-	}
-	
-	/**
-	 * 
-	 * @param property : Properties class object
-	 * @param propertyName : name of the property, you want to extract string value of
-	 * @return the property value.
-	 */
-	public String getStringPropertyValue(Properties property, String propertyName) {
-		String result = null;
-		result = property.getProperty(propertyName);
-		if (result.equals("") && result.isEmpty() && result == null) {
-			log.warn("'" + result + "' value is fetched for property '" + propertyName
-					+ "'. This may cause failure of test cases. Please check both the Property Name and its value are correct.");
-		} else {
-			log.debug("'" + result + "' value is fetched for property '" + propertyName + "'.");
-		}
-		return result;
-	}
-	
-	/**
-	 * 
-	 * @param testCaseName
+	 * @param testCaseName : Name of the testcase for which we are going to take this screenshot.
+	 * @return the path, where this screenshot is being stored.
 	 * @throws Exception
 	 */
 	public static String getScreenshotForGivenTestCase(String testCaseName) throws Exception {

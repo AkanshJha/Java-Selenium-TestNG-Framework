@@ -13,7 +13,14 @@ import com.appname.testcases.BaseClass;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+/**
+ * 
+ * @author Akansh Jha
+ *
+ */
 public class TestNG_Listener implements ITestListener {
 	private Logger log = LogManager.getLogger(TestNG_Listener.class.getName());
 	ExtentReports extent = null;
@@ -22,12 +29,17 @@ public class TestNG_Listener implements ITestListener {
 	public void onTestStart(ITestResult result) {
 		// ITestListener.super.onTestStart(result);
 		test = extent.createTest(result.getMethod().getMethodName());
+		log.debug("Report of the currently executing test case '"+result.getName()+"' is being created.");
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		// ITestListener.super.onTestSuccess(result);
-		test.log(Status.PASS, "Test is Passed.");
+		String testCaseName = result.getName();
+		// writing these logs to execution report
+		test.log(Status.PASS, MarkupHelper.createLabel(result.getName(), ExtentColor.GREEN));
+		test.log(Status.PASS, "Test case '" + result.getName() + "' is Passed.");
+		
+		// writing these log to the log file.
+		log.debug(testCaseName + " Status : PASS");
 	}
 
 	public void onTestFailure(ITestResult result) {
@@ -37,28 +49,41 @@ public class TestNG_Listener implements ITestListener {
 		String screenshotPath = "";
 		File f = null;
 		// result.getName() == result.getMethod().getMethodName()
+		// writing these logs to the Execution Report
+		test.log(Status.FAIL, MarkupHelper.createLabel(testCaseName , ExtentColor.RED));
 		test.fail(result.getThrowable());
-		log.debug("As test case is failed, taking a screenshot.");
+		
+		// writing these logs to the log file
+		log.debug(testCaseName + " Status : FAIL");		
+		log.debug("As test case '" + testCaseName + "' is failed, taking a screenshot of it.");
 		try {
 			screenshotPath = BaseClass.getScreenshotForGivenTestCase(testCaseName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Error occured while taking a screenshot. Please check the stack trace below : ", e);
 		}
 		f = new File(screenshotPath);
 		if (f.exists()) {
 			try {
-				test.fail("Screenshot is attcahed below:" + test.addScreenCaptureFromPath(screenshotPath, result.getName()));
-	
+				test.fail("Screenshot is attcahed below:"
+						+ test.addScreenCaptureFromPath(screenshotPath, result.getName()));
+
 			} catch (IOException e) {
-				log.error("This screenshot does not exist to attach.");
+				log.error("This screenshot does not exist to attach. Please check the stack trace below : ", e);
 			}
 		}
 	}
 
 	public void onTestSkipped(ITestResult result) {
+		String testCaseName = result.getName();
 		// TODO Auto-generated method stub
 		// ITestListener.super.onTestSkipped(result);
+		// writing these logs to the Execution Report
+				test.log(Status.SKIP, MarkupHelper.createLabel(testCaseName , ExtentColor.ORANGE));
+				test.skip("This Test is skipped.");
+				
+				// writing these logs to the log file
+				log.debug(testCaseName + " Status : SKIP");		
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
@@ -76,6 +101,7 @@ public class TestNG_Listener implements ITestListener {
 		// ITestListener.super.onStart(context);
 		if (extent == null) {
 			extent = ExtentReporterNG.getExtentReport();
+			log.debug("ExtentReports object has been retrieved. Report creation has been started.");
 		}
 	}
 
@@ -83,6 +109,7 @@ public class TestNG_Listener implements ITestListener {
 		// TODO Auto-generated method stub
 		// ITestListener.super.onFinish(context);
 		extent.flush();
+		log.debug("Extent Report has been flushed.");
 	}
 
 }

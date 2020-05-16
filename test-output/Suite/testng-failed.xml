@@ -4,7 +4,7 @@
   <listeners>
     <listener class-name="com.appname.utilities.TestNG_Listener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test1(failed)">
     <classes>
       <class name="com.appname.testcases.SampleClass">
         <methods>
@@ -15,5 +15,27 @@
         </methods>
       </class> <!-- com.appname.testcases.SampleClass -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test1(failed) -->
+  <test thread-count="5" name="Test2(failed)">
+    <classes>
+      <class name="com.appname.testcases.SampleClass2">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="sampleTestCase_05"/>
+        </methods>
+      </class> <!-- com.appname.testcases.SampleClass2 -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test thread-count="5" name="Test3(failed)">
+    <classes>
+      <class name="com.appname.testcases.SampleClass3">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="sampleTestCase_06"/>
+        </methods>
+      </class> <!-- com.appname.testcases.SampleClass3 -->
+    </classes>
+  </test> <!-- Test3(failed) -->
 </suite> <!-- Failed suite [Suite] -->

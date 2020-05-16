@@ -4,12 +4,26 @@
 	<listeners>
 		<listener class-name="com.appname.utilities.TestNG_Listener"></listener>
 	</listeners>
-	<test thread-count="5" name="Test">
+	<test thread-count="5" name="Test1">
 		<classes>
 			<class name="com.appname.testcases.SampleClass" />
-			<!-- <class name="com.appname.testcases.SampleClass2" />
-			<class name="com.appname.testcases.SampleClass3" />
-			<class name="com.appname.testcases.SampleClass4" /> -->
+			<!-- <class name="com.appname.testcases.SampleClass2" /> <class name="com.appname.testcases.SampleClass3" 
+				/> <class name="com.appname.testcases.SampleClass4" /> -->
 		</classes>
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+	</test>
+	<test thread-count="5" name="Test2">
+		<classes>
+			<class name="com.appname.testcases.SampleClass2" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Test3">
+		<classes>
+			<class name="com.appname.testcases.SampleClass3" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Test4">
+		<classes>
+			<class name="com.appname.testcases.SampleClass4" />
+		</classes>
+	</test>
+</suite> 

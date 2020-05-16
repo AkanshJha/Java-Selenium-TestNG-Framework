@@ -14,14 +14,12 @@ public class SampleClass2 extends BaseClass {
 	private static Logger log = LogManager.getLogger(SampleClass2.class.getName());
 	// SampleLogInPO login = new SampleLogInPO(driver);
 	@Test
-	public void sampleTestCase_02() {
+	public void sampleTestCase_05() {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
 		login.setSearchBoxValue(userName);
-		log.debug("Test Case has been executed successfully.");
 		
 		assertTrue(false);
-		log.debug("Test Case is failed.");
 		
 		
 		
