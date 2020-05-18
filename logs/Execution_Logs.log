@@ -2549,3 +2549,196 @@ java.lang.NullPointerException: null
 16-May-2020 20:57:39.409 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
 16-May-2020 20:57:41.653 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
 16-May-2020 20:57:41.653 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 16:37:15.887 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\Execution_Report_configurations.properties' has been loaded in the object successfully.
+18-May-2020 16:37:15.920 [main] DEBUG com.appname.utilities.ExtentReporterNG - ExtentSparkReporter has been instantiated.
+18-May-2020 16:37:15.921 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'Automation Execution Report' value is fetched for property 'report_name'.
+18-May-2020 16:37:15.921 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'Execution Report' value is fetched for property 'report_tile'.
+18-May-2020 16:37:15.921 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '' value is fetched for property 'theme'.
+18-May-2020 16:37:15.922 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '' value is fetched for property 'theme'.
+18-May-2020 16:37:15.923 [main] WARN  com.appname.utilities.ExtentReporterNG - Default theme is set in the report.
+18-May-2020 16:37:15.932 [main] DEBUG com.appname.utilities.ExtentReporterNG - ExtentReports object has been instantiated.
+18-May-2020 16:37:16.089 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\Execution_Report_System_Info.properties' has been loaded in the object successfully.
+18-May-2020 16:37:16.090 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'QA' value is fetched for property 'Environment'.
+18-May-2020 16:37:16.091 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'Akansh Jha' value is fetched for property 'Tester_Name'.
+18-May-2020 16:37:16.091 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'localhost' value is fetched for property 'HostName'.
+18-May-2020 16:37:16.091 [main] DEBUG com.appname.utilities.ExtentReporterNG - System Info is set to report file, given in 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\Execution_Report_System_Info.properties' file successfully.
+18-May-2020 16:37:16.092 [main] DEBUG com.appname.utilities.TestNG_Listener - ExtentReports object has been retrieved. Report creation has been started.
+18-May-2020 16:37:16.115 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 16:37:16.115 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 16:37:22.195 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 16:37:24.356 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 16:37:24.357 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 16:37:24.357 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 16:37:24.371 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 16:37:24.372 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 16:37:24.378 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 16:37:24.378 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 16:37:24.379 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 16:37:24.427 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_01' is being created.
+18-May-2020 16:37:26.437 [main] DEBUG com.appname.testcases.SampleClass - Test Case 01 has been executed successfully.
+18-May-2020 16:37:26.462 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_01 Status : FAIL
+18-May-2020 16:37:26.462 [main] DEBUG com.appname.utilities.TestNG_Listener - As test case 'sampleTestCase_01' is failed, taking a screenshot of it.
+18-May-2020 16:37:26.818 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_02' is being created.
+18-May-2020 16:37:27.876 [main] DEBUG com.appname.testcases.SampleClass - Test Case 02 has been executed successfully.
+18-May-2020 16:37:27.876 [main] DEBUG com.appname.testcases.SampleClass - Test Case 02 is Passed.
+18-May-2020 16:37:27.879 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_02 Status : PASS
+18-May-2020 16:37:27.890 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_03' is being created.
+18-May-2020 16:37:28.565 [main] DEBUG com.appname.testcases.SampleClass - Test Case 03 has been executed successfully.
+18-May-2020 16:37:28.568 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_03 Status : FAIL
+18-May-2020 16:37:28.568 [main] DEBUG com.appname.utilities.TestNG_Listener - As test case 'sampleTestCase_03' is failed, taking a screenshot of it.
+18-May-2020 16:37:29.058 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_04' is being created.
+18-May-2020 16:37:29.849 [main] DEBUG com.appname.testcases.SampleClass - Test Case 04 has been executed successfully.
+18-May-2020 16:37:29.849 [main] DEBUG com.appname.testcases.SampleClass - Test Case 04 is Passed.
+18-May-2020 16:37:29.852 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_04 Status : PASS
+18-May-2020 16:37:31.860 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 16:37:31.860 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 16:37:33.421 [main] DEBUG com.appname.utilities.TestNG_Listener - Extent Report has been flushed.
+18-May-2020 16:37:33.478 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 16:37:33.479 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 16:37:36.979 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 16:37:39.114 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 16:37:39.115 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 16:37:39.115 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 16:37:39.131 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 16:37:39.131 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 16:37:39.131 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 16:37:39.132 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 16:37:39.132 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 16:37:39.136 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_05' is being created.
+18-May-2020 16:37:40.655 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_05 Status : FAIL
+18-May-2020 16:37:40.656 [main] DEBUG com.appname.utilities.TestNG_Listener - As test case 'sampleTestCase_05' is failed, taking a screenshot of it.
+18-May-2020 16:37:43.017 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 16:37:43.017 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 16:37:43.855 [main] DEBUG com.appname.utilities.TestNG_Listener - Extent Report has been flushed.
+18-May-2020 16:37:43.879 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 16:37:43.880 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 16:37:47.316 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 16:37:49.471 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 16:37:49.471 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 16:37:49.472 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 16:37:49.482 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 16:37:49.483 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 16:37:49.483 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 16:37:49.483 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 16:37:49.484 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 16:37:49.489 [main] DEBUG com.appname.utilities.TestNG_Listener - Report of the currently executing test case 'sampleTestCase_06' is being created.
+18-May-2020 16:37:51.247 [main] DEBUG com.appname.utilities.TestNG_Listener - sampleTestCase_06 Status : SKIP
+18-May-2020 16:37:53.250 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 16:37:53.250 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 16:37:54.029 [main] DEBUG com.appname.utilities.TestNG_Listener - Extent Report has been flushed.
+18-May-2020 16:37:54.042 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 16:37:54.043 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 16:37:57.478 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 16:37:59.607 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 16:37:59.608 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 16:37:59.608 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 16:37:59.613 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 16:37:59.613 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 16:37:59.613 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 16:37:59.614 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 16:37:59.614 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 16:37:59.854 [main] DEBUG com.appname.utilities.TestNG_Listener - executingTestUsingDataProvider Status : SKIP
+18-May-2020 16:38:01.858 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 16:38:01.858 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 16:38:03.075 [main] DEBUG com.appname.utilities.TestNG_Listener - Extent Report has been flushed.
+18-May-2020 18:12:11.280 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 18:12:11.288 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 18:12:16.119 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 18:12:18.281 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 18:12:18.281 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 18:12:18.281 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 18:12:18.288 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 18:12:18.288 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 18:12:18.292 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 18:12:18.292 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 18:12:18.293 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 18:12:19.244 [main] DEBUG com.appname.testcases.SampleClass - Workbook object is created.
+18-May-2020 18:12:21.286 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 18:12:21.286 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 18:22:00.442 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 18:22:00.449 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 18:22:05.077 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 18:22:07.211 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 18:22:07.211 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 18:22:07.211 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 18:22:07.219 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 18:22:07.220 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 18:22:07.226 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 18:22:07.226 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 18:22:07.227 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 18:22:07.257 [main] DEBUG com.appname.testdata.DataProviderClass - Reading the Excel file using the DataProviderClass.
+18-May-2020 18:22:08.274 [main] DEBUG com.appname.testcases.SampleClass - Workbook object is created.
+18-May-2020 18:22:08.274 [main] DEBUG com.appname.testcases.SampleClass - 4 rows present in the selected sheet. Returning to the calling method.
+18-May-2020 18:22:08.275 [main] DEBUG com.appname.testcases.SampleClass - 2 columns present in the selwcted sheet. Returning to the calling method.
+18-May-2020 18:22:10.316 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 18:22:10.316 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 18:27:51.799 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 18:27:51.805 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 18:27:56.513 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 18:27:58.652 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 18:27:58.653 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 18:27:58.653 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 18:27:58.660 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 18:27:58.660 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 18:27:58.664 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 18:27:58.665 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 18:27:58.665 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 18:27:58.692 [main] DEBUG com.appname.testdata.DataProviderClass - Reading the Excel file using the DataProviderClass.
+18-May-2020 18:27:59.730 [main] DEBUG com.appname.testcases.SampleClass - Workbook object is created.
+18-May-2020 18:27:59.730 [main] DEBUG com.appname.testcases.SampleClass - Sheet object is created.
+18-May-2020 18:27:59.731 [main] DEBUG com.appname.testcases.SampleClass - 4 rows present in the selected sheet. Returning to the calling method.
+18-May-2020 18:27:59.731 [main] DEBUG com.appname.testcases.SampleClass - 2 columns present in the selwcted sheet. Returning to the calling method.
+18-May-2020 18:27:59.731 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.761 [main] DEBUG com.appname.testcases.SampleClass - Cell value is akanshjha
+18-May-2020 18:27:59.762 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.763 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:27:59.764 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.765 [main] DEBUG com.appname.testcases.SampleClass - Cell value is mukultalwar
+18-May-2020 18:27:59.765 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.767 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:27:59.767 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.768 [main] DEBUG com.appname.testcases.SampleClass - Cell value is ashishkumarsing
+18-May-2020 18:27:59.768 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.769 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:27:59.769 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.770 [main] DEBUG com.appname.testcases.SampleClass - Cell value is riyasukhdevsonune
+18-May-2020 18:27:59.770 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:27:59.771 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:27:59.771 [main] DEBUG com.appname.testdata.DataProviderClass - Excel has been read successfully.
+18-May-2020 18:28:06.864 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 18:28:06.864 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.
+18-May-2020 18:42:40.449 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - Properties of 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\configurations\ApplicationData.properties' has been loaded in the object successfully.
+18-May-2020 18:42:40.457 [main] DEBUG com.appname.testcases.BaseClass - Fetching the Chrome driver from WebDriverManager.
+18-May-2020 18:42:45.115 [main] DEBUG com.appname.testcases.BaseClass - Instantiating the Chrome Driver.
+18-May-2020 18:42:47.287 [main] DEBUG com.appname.testcases.BaseClass - The browser window is maximized.
+18-May-2020 18:42:47.288 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '4' value is fetched for property 'implicit_wait_time'.
+18-May-2020 18:42:47.289 [main] DEBUG com.appname.testcases.BaseClass - Setting Implicit wait to 4 seconds for the execution.
+18-May-2020 18:42:47.308 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - '9' value is fetched for property 'explicit_wait_time'.
+18-May-2020 18:42:47.309 [main] DEBUG com.appname.testcases.BaseClass - Setting Explicit wait to 9 seconds for the execution.
+18-May-2020 18:42:47.318 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'https://www.google.co.in/' value is fetched for property 'application_url'.
+18-May-2020 18:42:47.318 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'akansh.jha@gmail.com' value is fetched for property 'userName'.
+18-May-2020 18:42:47.319 [main] DEBUG com.appname.utilities.ReadPropertiesUtils - 'randomPass' value is fetched for property 'password'.
+18-May-2020 18:42:47.344 [main] DEBUG com.appname.testdata.Excel_DataProviderClass - Reading the Excel file using the DataProviderClass.
+18-May-2020 18:42:48.150 [main] DEBUG com.appname.testcases.SampleClass - Workbook object is created.
+18-May-2020 18:42:48.151 [main] DEBUG com.appname.testcases.SampleClass - Sheet object is created.
+18-May-2020 18:42:48.151 [main] DEBUG com.appname.testcases.SampleClass - 4 rows present in the selected sheet. Returning to the calling method.
+18-May-2020 18:42:48.151 [main] DEBUG com.appname.testcases.SampleClass - 2 columns present in the selwcted sheet. Returning to the calling method.
+18-May-2020 18:42:48.151 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.180 [main] DEBUG com.appname.testcases.SampleClass - Cell value is akanshjha
+18-May-2020 18:42:48.180 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.181 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:42:48.182 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.184 [main] DEBUG com.appname.testcases.SampleClass - Cell value is mukultalwar
+18-May-2020 18:42:48.184 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.185 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:42:48.186 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.187 [main] DEBUG com.appname.testcases.SampleClass - Cell value is ashishkumarsing
+18-May-2020 18:42:48.187 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.188 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:42:48.188 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.189 [main] DEBUG com.appname.testcases.SampleClass - Cell value is riyasukhdevsonune
+18-May-2020 18:42:48.189 [main] DEBUG com.appname.testcases.SampleClass - Reading the cell data.
+18-May-2020 18:42:48.190 [main] DEBUG com.appname.testcases.SampleClass - Cell value is Password@1
+18-May-2020 18:42:48.190 [main] DEBUG com.appname.testdata.Excel_DataProviderClass - Excel has been read successfully.
+18-May-2020 18:42:56.780 [main] DEBUG com.appname.testcases.BaseClass - Tearing Down the Class.
+18-May-2020 18:42:56.780 [main] DEBUG com.appname.testcases.BaseClass - Closing all the opened browsers.

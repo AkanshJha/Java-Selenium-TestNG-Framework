@@ -23,7 +23,7 @@
 	</test>
 	<test thread-count="5" name="Test4">
 		<classes>
-			<class name="com.appname.testcases.SampleClass4" />
+			<class name="com.appname.testcases.Sample_DataProviderClass_Use" />
 		</classes>
 	</test>
 </suite> 

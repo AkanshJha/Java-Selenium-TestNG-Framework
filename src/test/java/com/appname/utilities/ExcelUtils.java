@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -100,6 +101,7 @@ public class ExcelUtils {
 
 		try {
 			sheet = workbook.getSheetAt(sheetIndex);
+			log.debug("Sheet object is created.");
 		} catch (NullPointerException e) {
 			log.error("NullPointerException occured while getting the sheet name. Please check.", e);
 		} catch (Exception e) {
@@ -116,6 +118,7 @@ public class ExcelUtils {
 	public static int getRowsCountInSheet(XSSFSheet sheetObject) {
 		int rowNumbers = 0;
 		rowNumbers = sheetObject.getLastRowNum();
+		log.debug(rowNumbers+" rows present in the selected sheet. Returning to the calling method.");
 		return rowNumbers;
 	}
 
@@ -128,20 +131,25 @@ public class ExcelUtils {
 	public static int getColumnCountInSheet(XSSFSheet sheetObject) {
 		int columnNumbers = 0;
 		columnNumbers = sheetObject.getRow(0).getLastCellNum();
+		log.debug(columnNumbers+" columns present in the selwcted sheet. Returning to the calling method.");
 		return columnNumbers;
 	}
 
 	public static String getCellData(XSSFSheet sheetObject, int rowNum, int colNum) {
+		log.debug("Reading the cell data.");
 		String result = "";
 		XSSFRow row = sheetObject.getRow(rowNum);
 		XSSFCell cell = row.getCell(colNum);
-		if (cell.getCellType() == CellType.STRING) {
+		DataFormatter df = new DataFormatter();
+		result = df.formatCellValue(cell);
+		log.debug("Cell value is "+result);
+		/*if (cell.getCellType() == CellType.STRING) {
 			result = cell.getStringCellValue();
 		} else if (cell.getCellType() == CellType.NUMERIC) {
 			result = String.valueOf(cell.getNumericCellValue());
 		} else {
 			result = cell.getStringCellValue();
-		}
+		}*/
 		return result;
 	}
 }
