@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.util.Assert;
 import org.testng.annotations.Test;
 
+import com.appname.utilities.JSONUtilsTest;
+
 
 
 public class SampleClass extends BaseClass {
@@ -29,7 +31,7 @@ public class SampleClass extends BaseClass {
 		driver.get(applicationURL);
 		login.setSearchBoxValue(userName);
 		log.debug("Test Case 02 has been executed successfully.");
-		
+		JSONUtilsTest.createJSONFile();
 		assertTrue(true);
 		log.debug("Test Case 02 is Passed.");
 	}
