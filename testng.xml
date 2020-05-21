@@ -21,9 +21,15 @@
 			<class name="com.appname.testcases.SampleClass3" />
 		</classes>
 	</test>
+	
 	<test thread-count="5" name="Test4">
 		<classes>
 			<class name="com.appname.testcases.Sample_DataProviderClass_Use" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Test5">
+		<classes>
+			<class name="com.appname.testcases.DataDriven_Sample2" />
 		</classes>
 	</test>
 </suite> 
