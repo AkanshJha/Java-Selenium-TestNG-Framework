@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -42,7 +43,7 @@ public class DataDriven_Sample2 {
 	@DataProvider(name = "Data")
 	public Object[] dataSupplier(Method m) throws IOException, InvalidFormatException {
 		File file = new File(
-				BaseClass.currentDirectory + "\\src\\test\\java\\com\\appname\\testdata\\Sample_TestDataFile.xlsx");
+				BaseClass.currentDirectory + "\\src\\test\\java\\com\\appname\\testdata\\Approach2_TestData.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(file);
 		XSSFSheet sheet = wb.getSheetAt(0);
 
@@ -50,16 +51,16 @@ public class DataDriven_Sample2 {
 
 		int lastRowNumber = sheet.getLastRowNum();
 
-
 		System.out.println(sheet.getRow(0).getCell(0).getStringCellValue());
 
 		Object[] obj = null;
 		XSSFCell cell = null;
 		int startRowIndex = 0;
-		int endRowIndex = 0;
-		int endCellIndex = 0;
+		int lastRowIndex = 0;
+		int lastCellIndex = 0;
 		int resultArraySize = 0;
 		int currentIndexOfAArray = 0;
+		DataFormatter fmt = new DataFormatter();
 		System.out.println("Last Row Index = " + lastRowNumber);
 		for (int i = 0; i < lastRowNumber; i++) {
 			cell = sheet.getRow(i).getCell(0, MissingCellPolicy.CREATE_NULL_AS_BLANK);
@@ -67,39 +68,43 @@ public class DataDriven_Sample2 {
 			if (cell.getStringCellValue().equals(m.getName())) {
 				startRowIndex = cell.getRowIndex();
 				System.out.println("Start Row Index is " + startRowIndex + ".");
-				endCellIndex = sheet.getRow(startRowIndex).getLastCellNum();
-				System.out.println("End Cell Index is " + endCellIndex + ".");
+				lastCellIndex = sheet.getRow(startRowIndex).getLastCellNum();
+				System.out.println("End Cell Index is " + lastCellIndex + ".");
 				int j = i + 1;
 				System.out.println("Inside If statement and value j = " + j + " and value is " + sheet.getRow(j)
 				.getCell(0, MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue().equals(""));
-				// cell = sheet.getRow(j).getCell(0, MissingCellPolicy.CREATE_NULL_AS_BLANK);
+				cell = sheet.getRow(j).getCell(0, MissingCellPolicy.CREATE_NULL_AS_BLANK);
 				while ((sheet.getRow(j).getCell(0, MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue()
-						.equals("")) && j <= lastRowNumber) {
+						.equals("")) && j <= lastRowNumber)
+					// while(fmt.formatCellValue(cell).equals("") && j <= lastRowNumber)
+				{
 					System.out.println("Inside while and j = " + j);
+					/*
+					 * if (j == lastRowNumber) { break; } else { j++; }
+					 */
 					if (j == lastRowNumber) {
+						lastRowIndex = j;
+						resultArraySize = j - startRowIndex;
 						break;
 					} else {
 						j++;
+						lastRowIndex = j - 1;
+						resultArraySize = (j - startRowIndex) - 1;
 					}
-
 					// endRowIndex = j - 1;
 				}
 
-				
-				if (j == lastRowNumber) {
-					endRowIndex = j;
-					System.out.println(j + "-" + startRowIndex + " = ");
-					resultArraySize = (j - startRowIndex);
-				} else {
-					endRowIndex = j - 1;
-					System.out.println(j + "-" + startRowIndex + "-1 = ");
-					resultArraySize = (j - startRowIndex) - 1;
-				}
-				System.out.println("End Row Index is " + endRowIndex);
+				/*
+				 * if (j == lastRowNumber) { lastRowIndex = j; System.out.println(j + "-" +
+				 * startRowIndex + " = "); resultArraySize = (j - startRowIndex); } else {
+				 * lastRowIndex = j - 1; System.out.println(j + "-" + startRowIndex + "-1 = ");
+				 * resultArraySize = (j - startRowIndex) - 1; }
+				 */
+				System.out.println("End Row Index is " + lastRowIndex);
 				// resultArraySize = endRowIndex - startRowIndex;
 				break;
 			}
-				wb.close();
+
 		}
 		System.out.println("Result Array Size ====> " + resultArraySize);
 		obj = new Object[resultArraySize];
@@ -113,15 +118,17 @@ public class DataDriven_Sample2 {
 		Map<Object, Object> dataMap = null;
 		for (cell = sheet.getRow(r).getCell(0,
 				MissingCellPolicy.CREATE_NULL_AS_BLANK); (cell.getStringCellValue().equals("")) && r <= lastRowNumber
-				&& r <= endRowIndex; r++) {
+				&& r <= lastRowIndex; r++) {
 			dataMap = new HashMap<Object, Object>();
 			// currentIndexOfAArray = 0;
-			for (int c = 1; c < endCellIndex; c++) {
+			for (int c = 1; c < lastCellIndex; c++) {
 				System.out.println("Array's current Index value is " + currentIndexOfAArray);
 				Object keyName = sheet.getRow(startRowIndex).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK)
 						.getStringCellValue();
-				Object valueOnKey = sheet.getRow(r).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK)
-						.getStringCellValue();
+				// Object valueOnKey = sheet.getRow(r).getCell(c,
+				// MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue();
+				Object valueOnKey = fmt
+						.formatCellValue(sheet.getRow(r).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK));
 				System.out.println("dataMap.put(" + keyName + "," + valueOnKey + ");");
 				dataMap.put(keyName, valueOnKey);
 			}
@@ -168,6 +175,7 @@ public class DataDriven_Sample2 {
 		 * dataMap.put(sheet.getRow(0).getCell(j).getStringCellValue(), sheet.getRow(i +
 		 * 1).getCell(j).getStringCellValue()); } obj[i][0] = dataMap; }
 		 */
+		wb.close();
 		return obj;
 	}
 
@@ -181,7 +189,7 @@ public class DataDriven_Sample2 {
 		System.out.println(map.get("relation"));
 
 	}
-	
+
 	@Test(dataProvider = "Data")
 	public void sampleTC_004(Map<Object, Object> map) {
 		System.out.println("========================  Test Case 004 is being executed  =========================");
@@ -189,13 +197,5 @@ public class DataDriven_Sample2 {
 		System.out.println(map.get("Password"));
 		System.out.println(map.get("name"));
 		System.out.println(map.get("relation"));
-		System.out.println(map.get("userName1"));
-		System.out.println(map.get("Password1"));
-		System.out.println(map.get("name1"));
-		System.out.println(map.get("relation1"));
-		System.out.println(map.get("userName2"));
-		System.out.println(map.get("Password2"));
-		System.out.println(map.get("name2"));
-		System.out.println(map.get("relation2"));
 	}
 }

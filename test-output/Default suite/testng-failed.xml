@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.appname.testcases.DataDriven_Sample2">
+      <class name="com.appname.testcases.SampleClass3">
         <methods>
-          <include name="sampleTC_004"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="sampleTestCase_06"/>
         </methods>
-      </class> <!-- com.appname.testcases.DataDriven_Sample2 -->
+      </class> <!-- com.appname.testcases.SampleClass3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,203 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="3" ignored="0" total="30" passed="26">
+<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="53171" started-at="2020-05-22T02:02:20 IST" finished-at="2020-05-22T02:03:14 IST">
+  <suite name="Default suite" duration-ms="10375" started-at="2020-05-22T21:31:47 IST" finished-at="2020-05-22T21:31:57 IST">
     <groups>
     </groups>
-    <test name="Test1" duration-ms="15856" started-at="2020-05-22T02:02:20 IST" finished-at="2020-05-22T02:02:36 IST">
-      <class name="com.appname.testcases.SampleClass">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="setUp" is-config="true" duration-ms="7294" started-at="2020-05-22T02:02:21 IST" finished-at="2020-05-22T02:02:28 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="sampleTestCase_01()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="sampleTestCase_01" duration-ms="1879" started-at="2020-05-22T02:02:28 IST" finished-at="2020-05-22T02:02:30 IST">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.appname.testcases.SampleClass.sampleTestCase_01(SampleClass.java:25)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:766)
-at org.testng.TestRunner.run(TestRunner.java:587)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-at org.testng.TestNG.runSuites(TestNG.java:1039)
-at org.testng.TestNG.run(TestNG.java:1007)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTestCase_01 -->
-        <test-method status="PASS" signature="sampleTestCase_02()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="sampleTestCase_02" duration-ms="1076" started-at="2020-05-22T02:02:30 IST" finished-at="2020-05-22T02:02:31 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTestCase_02 -->
-        <test-method status="FAIL" signature="sampleTestCase_03()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="sampleTestCase_03" duration-ms="815" started-at="2020-05-22T02:02:31 IST" finished-at="2020-05-22T02:02:32 IST">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.appname.testcases.SampleClass.sampleTestCase_03(SampleClass.java:45)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:766)
-at org.testng.TestRunner.run(TestRunner.java:587)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-at org.testng.TestNG.runSuites(TestNG.java:1039)
-at org.testng.TestNG.run(TestNG.java:1007)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTestCase_03 -->
-        <test-method status="PASS" signature="sampleTestCase_04()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="sampleTestCase_04" duration-ms="828" started-at="2020-05-22T02:02:33 IST" finished-at="2020-05-22T02:02:34 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTestCase_04 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.appname.testcases.SampleClass@6ab778a]" name="tearDown" is-config="true" duration-ms="2773" started-at="2020-05-22T02:02:34 IST" finished-at="2020-05-22T02:02:36 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.appname.testcases.SampleClass -->
-    </test> <!-- Test1 -->
-    <test name="Test2" duration-ms="11268" started-at="2020-05-22T02:02:37 IST" finished-at="2020-05-22T02:02:48 IST">
-      <class name="com.appname.testcases.SampleClass2">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.appname.testcases.SampleClass2@5609159b]" name="setUp" is-config="true" duration-ms="5661" started-at="2020-05-22T02:02:37 IST" finished-at="2020-05-22T02:02:43 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="sampleTestCase_05()[pri:0, instance:com.appname.testcases.SampleClass2@5609159b]" name="sampleTestCase_05" duration-ms="2075" started-at="2020-05-22T02:02:43 IST" finished-at="2020-05-22T02:02:45 IST">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.appname.testcases.SampleClass2.sampleTestCase_05(SampleClass2.java:22)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:766)
-at org.testng.TestRunner.run(TestRunner.java:587)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-at org.testng.TestNG.runSuites(TestNG.java:1039)
-at org.testng.TestNG.run(TestNG.java:1007)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTestCase_05 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.appname.testcases.SampleClass2@5609159b]" name="tearDown" is-config="true" duration-ms="3162" started-at="2020-05-22T02:02:45 IST" finished-at="2020-05-22T02:02:48 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.appname.testcases.SampleClass2 -->
-    </test> <!-- Test2 -->
-    <test name="Test3" duration-ms="10127" started-at="2020-05-22T02:02:48 IST" finished-at="2020-05-22T02:02:59 IST">
+    <test name="Default test" duration-ms="10375" started-at="2020-05-22T21:31:47 IST" finished-at="2020-05-22T21:31:57 IST">
       <class name="com.appname.testcases.SampleClass3">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.appname.testcases.SampleClass3@672872e1]" name="setUp" is-config="true" duration-ms="5593" started-at="2020-05-22T02:02:48 IST" finished-at="2020-05-22T02:02:54 IST">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.appname.testcases.SampleClass3@6ab778a]" name="setUp" is-config="true" duration-ms="7447" started-at="2020-05-22T21:31:47 IST" finished-at="2020-05-22T21:31:54 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="sampleTestCase_06()[pri:0, instance:com.appname.testcases.SampleClass3@672872e1]" name="sampleTestCase_06" duration-ms="1781" started-at="2020-05-22T02:02:54 IST" finished-at="2020-05-22T02:02:56 IST">
-          <exception class="org.testng.SkipException">
+        <test-method status="SKIP" signature="sampleTestCase_06(java.util.Map)[pri:0, instance:com.appname.testcases.SampleClass3@6ab778a]" name="sampleTestCase_06" duration-ms="0" started-at="2020-05-22T21:31:54 IST" data-provider="DataSupplier" finished-at="2020-05-22T21:31:54 IST">
+          <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[Skipping this Test]]>
+              <![CDATA[org.apache.poi.openxml4j.exceptions.InvalidOperationException: Failed to read the file input stream from file: 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\src\test\java\com\appname\testdata\Approach2_TestData.xlsx']]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.SkipException: Skipping this Test
-at com.appname.testcases.SampleClass3.sampleTestCase_06(SampleClass3.java:23)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+              <![CDATA[java.lang.RuntimeException: org.apache.poi.openxml4j.exceptions.InvalidOperationException: Failed to read the file input stream from file: 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\src\test\java\com\appname\testdata\Approach2_TestData.xlsx'
+at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:51)
+at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:147)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:801)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:744)
+at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
+at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:783)
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -217,317 +44,50 @@ at org.testng.TestNG.run(TestNG.java:1007)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.apache.poi.openxml4j.exceptions.InvalidOperationException: Failed to read the file input stream from file: 'C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework\src\test\java\com\appname\testdata\Approach2_TestData.xlsx'
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:172)
+at org.apache.poi.openxml4j.opc.ZipPackage.<init>(ZipPackage.java:145)
+at org.apache.poi.openxml4j.opc.OPCPackage.open(OPCPackage.java:305)
+at org.apache.poi.openxml4j.opc.OPCPackage.open(OPCPackage.java:201)
+at org.apache.poi.xssf.usermodel.XSSFWorkbook.<init>(XSSFWorkbook.java:313)
+at com.appname.testdata.Approach2_Excel_DataProviderClass.dataSupplier(Approach2_Excel_DataProviderClass.java:54)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:78)
+at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:47)
+... 25 more
+Caused by: org.apache.poi.openxml4j.exceptions.InvalidOperationException: Failed to read the zip entry source stream
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:198)
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:164)
+... 37 more
+Caused by: org.apache.poi.openxml4j.exceptions.InvalidOperationException: Could not open the specified zip entry source stream
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:208)
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:190)
+... 38 more
+Caused by: java.io.EOFException: Unexpected end of ZLIB input stream
+at java.util.zip.InflaterInputStream.fill(Unknown Source)
+at java.util.zip.InflaterInputStream.read(Unknown Source)
+at java.util.zip.ZipInputStream.read(Unknown Source)
+at org.apache.poi.openxml4j.util.ZipSecureFile$ThresholdInputStream.read(ZipSecureFile.java:213)
+at java.io.FilterInputStream.read(Unknown Source)
+at org.apache.poi.openxml4j.util.ZipInputStreamZipEntrySource$FakeZipEntry.<init>(ZipInputStreamZipEntrySource.java:132)
+at org.apache.poi.openxml4j.util.ZipInputStreamZipEntrySource.<init>(ZipInputStreamZipEntrySource.java:56)
+at org.apache.poi.openxml4j.opc.ZipPackage.openZipEntrySourceStream(ZipPackage.java:206)
+... 39 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.testng.SkipException -->
+          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sampleTestCase_06 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.appname.testcases.SampleClass3@672872e1]" name="tearDown" is-config="true" duration-ms="2744" started-at="2020-05-22T02:02:56 IST" finished-at="2020-05-22T02:02:59 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.appname.testcases.SampleClass3@6ab778a]" name="tearDown" is-config="true" duration-ms="2758" started-at="2020-05-22T21:31:54 IST" finished-at="2020-05-22T21:31:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.appname.testcases.SampleClass3 -->
-    </test> <!-- Test3 -->
-    <test name="Test4" duration-ms="14240" started-at="2020-05-22T02:02:59 IST" finished-at="2020-05-22T02:03:13 IST">
-      <class name="com.appname.testcases.Sample_DataProviderClass_Use">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="setUp" is-config="true" duration-ms="5780" started-at="2020-05-22T02:02:59 IST" finished-at="2020-05-22T02:03:04 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="executingTestUsingDataProvider(java.lang.String, java.lang.String)[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="executingTestUsingDataProvider" duration-ms="1945" started-at="2020-05-22T02:03:05 IST" data-provider="userName-password" finished-at="2020-05-22T02:03:07 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[akanshjha]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password@1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- executingTestUsingDataProvider -->
-        <test-method status="PASS" signature="executingTestUsingDataProvider(java.lang.String, java.lang.String)[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="executingTestUsingDataProvider" duration-ms="981" started-at="2020-05-22T02:03:07 IST" data-provider="userName-password" finished-at="2020-05-22T02:03:08 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[mukultalwar]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password@1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- executingTestUsingDataProvider -->
-        <test-method status="PASS" signature="executingTestUsingDataProvider(java.lang.String, java.lang.String)[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="executingTestUsingDataProvider" duration-ms="903" started-at="2020-05-22T02:03:08 IST" data-provider="userName-password" finished-at="2020-05-22T02:03:09 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ashishkumarsing]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password@1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- executingTestUsingDataProvider -->
-        <test-method status="PASS" signature="executingTestUsingDataProvider(java.lang.String, java.lang.String)[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="executingTestUsingDataProvider" duration-ms="951" started-at="2020-05-22T02:03:09 IST" data-provider="userName-password" finished-at="2020-05-22T02:03:10 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[riyasukhdevsonune]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Password@1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- executingTestUsingDataProvider -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.appname.testcases.Sample_DataProviderClass_Use@7c83dc97]" name="tearDown" is-config="true" duration-ms="2756" started-at="2020-05-22T02:03:10 IST" finished-at="2020-05-22T02:03:13 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.appname.testcases.Sample_DataProviderClass_Use -->
-    </test> <!-- Test4 -->
-    <test name="Test5" duration-ms="680" started-at="2020-05-22T02:03:13 IST" finished-at="2020-05-22T02:03:14 IST">
-      <class name="com.appname.testcases.DataDriven_Sample2">
-        <test-method status="PASS" signature="sampleTC_001(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_001" duration-ms="1" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{userName=Akansh, Password=Jha}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_001 -->
-        <test-method status="PASS" signature="sampleTC_001(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_001" duration-ms="2" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{userName=Riya, Password=Sonune}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_001 -->
-        <test-method status="PASS" signature="sampleTC_002(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_002" duration-ms="1" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{userName=Ashish, Password=Singh}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_002 -->
-        <test-method status="PASS" signature="sampleTC_002(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_002" duration-ms="1" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{userName=Mukul, Password=Talwar}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_002 -->
-        <test-method status="PASS" signature="sampleTC_003(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_003" duration-ms="2" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=Sunil, userName=Aditi, Password=Jha, relation=Father}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_003 -->
-        <test-method status="PASS" signature="sampleTC_003(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_003" duration-ms="1" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=Anita, userName=Rupin, Password=Jha, relation=Mother}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_003 -->
-        <test-method status="PASS" signature="sampleTC_003(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_003" duration-ms="3" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=Rekha, userName=Ashish, Password=Singh, relation=Mother}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_003 -->
-        <test-method status="PASS" signature="sampleTC_003(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_003" duration-ms="2" started-at="2020-05-22T02:03:13 IST" data-provider="Data" finished-at="2020-05-22T02:03:13 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=xyz, userName=Mukul, Password=Talwar, relation=abc}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_003 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="2" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Aditi, relation=Father, name=Sunil, userName2=Aditi, name2=Sunil, name1=Sunil, relation2=Father, relation1=Father, Password=Jha, userName1=Aditi}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="2" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Rupin, relation=Mother, name=Anita, userName2=Rupin, name2=Anita, name1=Anita, relation2=Mother, relation1=Mother, Password=Jha, userName1=Rupin}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="1" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Singh, Password1=Singh, userName=Ashish, relation=Mother, name=Rekha, userName2=Ashish, name2=Rekha, name1=Rekha, relation2=Mother, relation1=Mother, Password=Singh, userName1=Ashish}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="5" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Talwar, Password1=Talwar, userName=Mukul, relation=abc, name=xyz, userName2=Mukul, name2=xyz, name1=xyz, relation2=abc, relation1=abc, Password=Talwar, userName1=Mukul}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="3" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Aditi, relation=Father, name=Sunil, userName2=Aditi, name2=Sunil, name1=Sunil, relation2=Father, relation1=Father, Password=Jha, userName1=Aditi}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="5" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Rupin, relation=Mother, name=Anita, userName2=Rupin, name2=Anita, name1=Anita, relation2=Mother, relation1=Mother, Password=Jha, userName1=Rupin}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="4" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Singh, Password1=Singh, userName=Ashish, relation=Mother, name=Rekha, userName2=Ashish, name2=Rekha, name1=Rekha, relation2=Mother, relation1=Mother, Password=Singh, userName1=Ashish}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="5" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Talwar, Password1=Talwar, userName=Mukul, relation=abc, name=xyz, userName2=Mukul, name2=xyz, name1=xyz, relation2=abc, relation1=abc, Password=Talwar, userName1=Mukul}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="4" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Aditi, relation=Father, name=Sunil, userName2=Aditi, name2=Sunil, name1=Sunil, relation2=Father, relation1=Father, Password=Jha, userName1=Aditi}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="3" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Jha, Password1=Jha, userName=Rupin, relation=Mother, name=Anita, userName2=Rupin, name2=Anita, name1=Anita, relation2=Mother, relation1=Mother, Password=Jha, userName1=Rupin}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="2" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Singh, Password1=Singh, userName=Ashish, relation=Mother, name=Rekha, userName2=Ashish, name2=Rekha, name1=Rekha, relation2=Mother, relation1=Mother, Password=Singh, userName1=Ashish}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-        <test-method status="PASS" signature="sampleTC_004(java.util.Map)[pri:0, instance:com.appname.testcases.DataDriven_Sample2@157853da]" name="sampleTC_004" duration-ms="3" started-at="2020-05-22T02:03:14 IST" data-provider="Data" finished-at="2020-05-22T02:03:14 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{Password2=Talwar, Password1=Talwar, userName=Mukul, relation=abc, name=xyz, userName2=Mukul, name2=xyz, name1=xyz, relation2=abc, relation1=abc, Password=Talwar, userName1=Mukul}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sampleTC_004 -->
-      </class> <!-- com.appname.testcases.DataDriven_Sample2 -->
-    </test> <!-- Test5 -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

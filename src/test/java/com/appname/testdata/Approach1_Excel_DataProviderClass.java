@@ -8,13 +8,13 @@ import org.testng.annotations.DataProvider;
 import com.appname.testcases.BaseClass;
 import com.appname.utilities.ExcelUtils;
 
-public class Excel_DataProviderClass {
+public class Approach1_Excel_DataProviderClass {
 	private static Logger log = LogManager.getLogger();
 	
 	@DataProvider(name = "userName-password")
 	public String[][] getData(){
 		log.debug("Reading the Excel file using the DataProviderClass.");
-		String workBookPath = BaseClass.currentDirectory + "\\src\\test\\java\\com\\appname\\testdata\\UserNames - Password Test Data.xlsx";
+		String workBookPath = BaseClass.currentDirectory + "\\src\\test\\java\\com\\appname\\testdata\\Approach1_TestData.xlsx";
 		System.out.println(workBookPath);
 		int sheetIndex = 0;
 		int rowCount = 0;

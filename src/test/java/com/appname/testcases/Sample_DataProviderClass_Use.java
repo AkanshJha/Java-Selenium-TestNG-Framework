@@ -12,7 +12,7 @@ public class Sample_DataProviderClass_Use extends BaseClass {
 
 	// SampleLogInPO login = new SampleLogInPO(driver);
 	
-	@Test(dataProvider = "userName-password", dataProviderClass = com.appname.testdata.Excel_DataProviderClass.class)
+	@Test(dataProvider = "userName-password", dataProviderClass = com.appname.testdata.Approach1_Excel_DataProviderClass.class)
 	public void executingTestUsingDataProvider(String userName, String password) {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
