@@ -2,6 +2,7 @@ package com.appname.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,19 +26,34 @@ public class TestNG_Listener implements ITestListener {
 	private Logger log = LogManager.getLogger(TestNG_Listener.class.getName());
 	ExtentReports extent = null;
 	ExtentTest test;
+	Object[] param = null;
+	Map<Object, Object> map = null;
 
 	public void onTestStart(ITestResult result) {
 		// ITestListener.super.onTestStart(result);
-		test = extent.createTest(result.getMethod().getMethodName());
-		log.debug("Report of the currently executing test case '"+result.getName()+"' is being created.");
+		// test = extent.createTest(result.getMethod().getMethodName());
+		param = result.getParameters();
+		if (param.length > 0) {
+			map = (Map<Object, Object>) param[0];
+			// test = extent.createTest(result.getMethod().getMethodName());
+			test = extent.createTest(result.getMethod().getMethodName() + " for data " + map);
+		} else {
+			test = extent.createTest(result.getMethod().getMethodName());
+		}
+		System.out.println(map);
+		log.debug("Report of the currently executing test case '" + result.getName() + "' is being created.");
 	}
 
 	public void onTestSuccess(ITestResult result) {
 		String testCaseName = result.getName();
 		// writing these logs to execution report
+
 		test.log(Status.PASS, MarkupHelper.createLabel(result.getName(), ExtentColor.GREEN));
+		if (param.length > 0) {
+			test.log(Status.PASS, "for test data, " + map);
+		}
 		test.log(Status.PASS, "Test case '" + result.getName() + "' is Passed.");
-		
+
 		// writing these log to the log file.
 		log.debug(testCaseName + " Status : PASS");
 	}
@@ -50,11 +66,14 @@ public class TestNG_Listener implements ITestListener {
 		File f = null;
 		// result.getName() == result.getMethod().getMethodName()
 		// writing these logs to the Execution Report
-		test.log(Status.FAIL, MarkupHelper.createLabel(testCaseName , ExtentColor.RED));
+		test.log(Status.FAIL, MarkupHelper.createLabel(testCaseName, ExtentColor.RED));
+		if (param.length > 0) {
+			test.log(Status.FAIL, "for test data, " + map);
+		}
 		test.fail(result.getThrowable());
-		
+
 		// writing these logs to the log file
-		log.debug(testCaseName + " Status : FAIL");		
+		log.debug(testCaseName + " Status : FAIL");
 		log.debug("As test case '" + testCaseName + "' is failed, taking a screenshot of it.");
 		try {
 			screenshotPath = BaseClass.getScreenshotForGivenTestCase(testCaseName);
@@ -65,11 +84,10 @@ public class TestNG_Listener implements ITestListener {
 		f = new File(screenshotPath);
 		if (f.exists()) {
 			try {
-				test.fail("Screenshot is attcahed below:"
-						+ test.addScreenCaptureFromPath(screenshotPath, result.getName()));
+				test.fail("Screenshot is attcahed below:"+ test.addScreenCaptureFromPath(screenshotPath, testCaseName));
 
 			} catch (IOException e) {
-				log.error("This screenshot does not exist to attach. Please check the stack trace below : ", e);
+				log.error("This screenshot does not exist/corrupt to attach. Please check the stack trace below : ", e);
 			}
 		}
 	}
@@ -79,11 +97,11 @@ public class TestNG_Listener implements ITestListener {
 		// TODO Auto-generated method stub
 		// ITestListener.super.onTestSkipped(result);
 		// writing these logs to the Execution Report
-				test.log(Status.SKIP, MarkupHelper.createLabel(testCaseName , ExtentColor.ORANGE));
-				test.skip("This Test is skipped.");
-				
-				// writing these logs to the log file
-				log.debug(testCaseName + " Status : SKIP");		
+		test.log(Status.SKIP, MarkupHelper.createLabel(testCaseName, ExtentColor.ORANGE));
+		test.skip("This Test is skipped.");
+
+		// writing these logs to the log file
+		log.debug(testCaseName + " Status : SKIP");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {

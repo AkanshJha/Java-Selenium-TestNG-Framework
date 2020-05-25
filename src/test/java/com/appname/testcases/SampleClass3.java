@@ -1,5 +1,7 @@
 package com.appname.testcases;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,11 +18,17 @@ public class SampleClass3 extends BaseClass {
 	public void sampleTestCase_06(Map<Object, Object> map) {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
+		String testDatUserName = (String) map.get("userName");
+		String testDataPWD = (String) map.get("password");
 		login.setSearchBoxValue(userName);
-		System.out.println(map.get("userName"));
-		System.out.println(map.get("Password"));
-		System.out.println(map.get("name"));
-		System.out.println(map.get("relation"));
+		System.out.println(testDatUserName);
+		System.out.println(testDataPWD);
+		
+		if(testDatUserName.equalsIgnoreCase("Akansh")) {
+			assertTrue(false);
+		}
+		// System.out.println(map.get("name"));
+		// System.out.println(map.get("relation"));
 		
 		// throw new SkipException("Skipping this Test");
 		

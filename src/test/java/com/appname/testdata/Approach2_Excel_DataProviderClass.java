@@ -34,7 +34,7 @@ public class Approach2_Excel_DataProviderClass {
 		Properties properties = ReadPropertiesUtils.loadPropertiesFile(propertiesFilePath);
 		String testDataFilePath = ReadPropertiesUtils.getStringPropertyValue(properties, "test_data_excel_file");
 		String testCaseName = m.getName(); // Current Method Name is Test Case Name
-		File file = null;
+		FileInputStream file = null;
 		XSSFWorkbook workbook = null;
 		XSSFSheet sheet = null;
 		XSSFCell cell = null;
@@ -49,12 +49,16 @@ public class Approach2_Excel_DataProviderClass {
 
 		// Initializing the variables
 		dataFormatter = new DataFormatter();
-		file = new File(testDataFilePath);
 		try {
-			// workbook = new XSSFWorkbook(file);
-			workbook = new XSSFWorkbook(new FileInputStream(file));
+			file = new FileInputStream(new File(testDataFilePath));
+		} catch (FileNotFoundException e) {
+			log.error("File is not found on location '" + testDataFilePath + "'.");
 		}
-		catch(NotOfficeXmlFileException e) {
+
+		try {
+			workbook = new XSSFWorkbook(file);
+			// workbook = new XSSFWorkbook(new FileInputStream(file));
+		} catch (NotOfficeXmlFileException e) {
 			log.error(
 					"Format of the test data file seems to be invalid. Please make sure, you are using \".xlsx\" format file to retrieve the Test Data.\nExecution is terminated.",
 					e);
@@ -72,7 +76,7 @@ public class Approach2_Excel_DataProviderClass {
 			System.exit(0);
 		} catch (IOException e) {
 			log.error(
-					"Please make sure the file, to be read, is not open. Please close it if it is open.\nExecution is terminated.",
+					"Please make sure the file, to be read, is not open. Please close it if it is open. Or the file is corrupted. Please check.\nExecution is terminated.",
 					e);
 			System.exit(0);
 		}
@@ -108,10 +112,11 @@ public class Approach2_Excel_DataProviderClass {
 			}
 		}
 		// Terminating the execution if No Test Data for the test case is found.
-		if(i == lastRowNumber) {
-			log.error("No Test Data is found for the Test Case '"+testCaseName+"'. Please update the test data sheet with test data for this test case.\nTerminating the execution.");
+		if (i == lastRowNumber) {
+			log.error("No Test Data is found for the Test Case '" + testCaseName
+					+ "'. Please update the test data sheet with test data for this test case.\nTerminating the execution.");
 			System.exit(0);
-		}		
+		}
 
 		// Initializing the Result Array
 		result = new Object[resultArraySize];
@@ -123,19 +128,21 @@ public class Approach2_Excel_DataProviderClass {
 			dataMap = new HashMap<Object, Object>();
 			// Iterating the cells of current row
 			for (int c = 1; c < lastCellIndex; c++) {
-				Object keyName = dataFormatter.formatCellValue(sheet.getRow(startRowIndex).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK));
-				Object valueForKey = dataFormatter.formatCellValue(sheet.getRow(r).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK));
+				Object keyName = dataFormatter.formatCellValue(
+						sheet.getRow(startRowIndex).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK));
+				Object valueForKey = dataFormatter
+						.formatCellValue(sheet.getRow(r).getCell(c, MissingCellPolicy.CREATE_NULL_AS_BLANK));
 				dataMap.put(keyName, valueForKey); // each Row Data is store in this Map object
 			}
-			result[currentIndexOfArray++] = dataMap; // each Map object is assigned in array on various Index. 
+			result[currentIndexOfArray++] = dataMap; // each Map object is assigned in array on various Index.
 		}
 
-		//closing the workBook object.
-		if(workbook!=null) {
-			log.debug("WorkBook object is been closed.");
+		// closing the workBook object.
+		if (workbook != null) {
+			log.debug("WorkBook object is being closed.");
 			try {
 				workbook.close();
-				log.debug("WorkBook object has being closed.");
+				log.debug("WorkBook object has been closed.");
 			} catch (IOException e) {
 				log.error("Some Error Occured while closing the workbook Object.");
 			}
