@@ -15,7 +15,7 @@ public class SampleClass extends BaseClass {
 
 	private static Logger log = LogManager.getLogger(SampleClass.class.getName());
 	// SampleLogInPO login = new SampleLogInPO(driver);
-	@Test
+	@Test(groups = {"smoke"})
 	public void sampleTestCase_01() {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
@@ -25,7 +25,7 @@ public class SampleClass extends BaseClass {
 		assertTrue(false);
 		log.debug("Test Case 01 is failed.");
 	}
-	@Test
+	@Test(groups = {"smoke","regression"})
 	public void sampleTestCase_02() {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
@@ -35,7 +35,7 @@ public class SampleClass extends BaseClass {
 		assertTrue(true);
 		log.debug("Test Case 02 is Passed.");
 	}
-	@Test
+	@Test(groups = {"regression"})
 	public void sampleTestCase_03() {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
@@ -45,7 +45,7 @@ public class SampleClass extends BaseClass {
 		assertTrue(false);
 		log.debug("Test Case 03 is failed.");	
 	}
-	@Test
+	@Test(groups = {"regression"})
 	public void sampleTestCase_04() {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);

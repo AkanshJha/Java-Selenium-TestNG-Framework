@@ -14,7 +14,7 @@ public class SampleClass3 extends BaseClass {
 
 	private static Logger log = LogManager.getLogger(SampleClass3.class.getName());
 	// SampleLogInPO login = new SampleLogInPO(driver);
-	@Test(dataProvider = "DataSupplier", dataProviderClass = com.appname.testdata.Approach2_Excel_DataProviderClass.class)
+	@Test(dataProvider = "DataSupplier", dataProviderClass = com.appname.testdata.Approach2_Excel_DataProviderClass.class, groups = {"smoke"})
 	public void sampleTestCase_06(Map<Object, Object> map) {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);

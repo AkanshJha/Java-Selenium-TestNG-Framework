@@ -7,7 +7,7 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="sampleTestCase_06"/>
+          <include name="sampleTestCase_06" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.appname.testcases.SampleClass3 -->
     </classes>
