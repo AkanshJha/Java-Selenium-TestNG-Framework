@@ -7,11 +7,6 @@
 	
 
 	<test name="Test1">
-	<groups>
-		<run>
-			<include name="smoke"></include>
-		</run>
-	</groups>
 		<classes>
 			<class name="com.appname.testcases.SampleClass" />
 			<!-- <class name="com.appname.testcases.SampleClass2" /> <class name="com.appname.testcases.SampleClass3" 

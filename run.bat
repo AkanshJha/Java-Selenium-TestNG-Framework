@@ -1,2 +1,2 @@
-cd C:\Users\deepa\eclipse-workspace\Java-Selenium-TestNG-Framework
+cd C:\Users\Akansh\eclipse-workspace\Java-Selenium-TestNG-Framework
 mvn clean install

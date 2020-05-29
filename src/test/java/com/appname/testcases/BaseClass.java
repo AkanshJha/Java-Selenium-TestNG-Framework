@@ -19,6 +19,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import com.appname.utilities.ReadPropertiesUtils;
+import com.appname.utilities.TestNG_Listener;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -171,5 +174,16 @@ public class BaseClass {
 		String destination = currentDirectory+"//reports//screenshots//"+testCaseName+".png";
 		FileUtils.copyFile(source, new File(destination));
 		return destination;
+	}
+	
+	/**
+	 * 
+	 * @param status : Status you wanna pass, Status.PASS o Status.FAIL
+	 * @param message : message you want to attach to the report for the test case.
+	 */
+	public static void wrtieToReport(Status status, String message) {
+		ExtentTest test = TestNG_Listener.getExtentTestObject();
+		test.log(status,message);
+		log.debug("message has been added to the extent report from the test case.");
 	}
 }

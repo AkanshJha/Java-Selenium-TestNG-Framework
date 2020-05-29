@@ -25,10 +25,19 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 public class TestNG_Listener implements ITestListener {
 	private Logger log = LogManager.getLogger(TestNG_Listener.class.getName());
 	ExtentReports extent = null;
-	ExtentTest test;
+	static ExtentTest test;
 	Object[] param = null;
 	Map<Object, Object> map = null;
+	
+	/**
+	 * 
+	 * @return the current ExtentTest Object
+	 */
+	public static ExtentTest getExtentTestObject() {
+		return test;
+	}
 
+	
 	public void onTestStart(ITestResult result) {
 		// ITestListener.super.onTestStart(result);
 		// test = extent.createTest(result.getMethod().getMethodName());
