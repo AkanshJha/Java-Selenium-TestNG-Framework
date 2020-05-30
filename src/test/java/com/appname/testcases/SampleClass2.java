@@ -20,7 +20,7 @@ public class SampleClass2 extends BaseClass {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
 		login.setSearchBoxValue(userName);
-		BaseClass.wrtieToReport(Status.FAIL, "<b>This test case has been failed due to the error.</b>");
+		writeToReport(Status.FAIL, "<b>This test case has been failed due to the error.</b>");
 		assertTrue(false);
 		
 		

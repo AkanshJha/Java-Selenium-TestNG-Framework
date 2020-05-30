@@ -20,7 +20,7 @@ public class SampleClass extends BaseClass {
 		com.appname.pageobjects.SampleLogInPO login = new com.appname.pageobjects.SampleLogInPO(driver);
 		driver.get(applicationURL);
 		login.setSearchBoxValue(userName);
-		BaseClass.wrtieToReport(Status.FAIL, "<b>This message has been added to the report.</b>");
+		writeToReport(Status.FAIL, "<b>This message has been added to the report.</b>");
 		log.debug("Test Case 01 has been executed successfully.");
 		
 		assertTrue(false);
@@ -32,7 +32,7 @@ public class SampleClass extends BaseClass {
 		driver.get(applicationURL);
 		login.setSearchBoxValue(userName);
 		log.debug("Test Case 02 has been executed successfully.");
-		BaseClass.wrtieToReport(Status.PASS, "Fail message has been added.");
+		writeToReport(Status.PASS, "Fail message has been added.");
 		JSONUtilsTest.createJSONFile();
 		assertTrue(true);
 		log.debug("Test Case 02 is Passed.");

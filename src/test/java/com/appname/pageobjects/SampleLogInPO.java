@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SampleLogInPO {
+import com.appname.utilities.BasicOperationsOnElements;
+
+public class SampleLogInPO extends BasicOperationsOnElements{
 	// similarly, we can create Page Object classes for other application Pages.
 	WebDriver driver;
 	
@@ -22,7 +24,8 @@ public class SampleLogInPO {
 	
 	// Now we will be creating the methods to set the values.
 	public void setSearchBoxValue(String userName) {
-		searchBoxGoogleHome.sendKeys(userName);
+		// searchBoxGoogleHome.sendKeys(userName);
+		setData(searchBoxGoogleHome, userName);
 	}
 
 }

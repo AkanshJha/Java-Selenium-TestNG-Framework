@@ -181,7 +181,7 @@ public class BaseClass {
 	 * @param status : Status you wanna pass, Status.PASS o Status.FAIL
 	 * @param message : message you want to attach to the report for the test case.
 	 */
-	public static void wrtieToReport(Status status, String message) {
+	public void writeToReport(Status status, String message) {
 		ExtentTest test = TestNG_Listener.getExtentTestObject();
 		test.log(status,message);
 		log.debug("message has been added to the extent report from the test case.");

@@ -57,10 +57,11 @@ public class TestNG_Listener implements ITestListener {
 		String testCaseName = result.getName();
 		// writing these logs to execution report
 
-		test.log(Status.PASS, MarkupHelper.createLabel(result.getName(), ExtentColor.GREEN));
-		if (param.length > 0) {
-			test.log(Status.PASS, "for test data, " + map);
-		}
+		/*
+		 * test.log(Status.PASS, MarkupHelper.createLabel(result.getName(),
+		 * ExtentColor.GREEN)); if (param.length > 0) { test.log(Status.PASS,
+		 * "for test data, " + map); }
+		 */
 		test.log(Status.PASS, "Test case '" + result.getName() + "' is Passed.");
 
 		// writing these log to the log file.
@@ -75,10 +76,11 @@ public class TestNG_Listener implements ITestListener {
 		File f = null;
 		// result.getName() == result.getMethod().getMethodName()
 		// writing these logs to the Execution Report
-		test.log(Status.FAIL, MarkupHelper.createLabel(testCaseName, ExtentColor.RED));
-		if (param.length > 0) {
-			test.log(Status.FAIL, "for test data, " + map);
-		}
+		/*
+		 * test.log(Status.FAIL, MarkupHelper.createLabel(testCaseName,
+		 * ExtentColor.RED)); if (param.length > 0) { test.log(Status.FAIL,
+		 * "for test data, " + map); }
+		 */
 		test.fail(result.getThrowable());
 
 		// writing these logs to the log file
@@ -93,12 +95,17 @@ public class TestNG_Listener implements ITestListener {
 		f = new File(screenshotPath);
 		if (f.exists()) {
 			try {
-				test.fail("Screenshot is attcahed below:"+ test.addScreenCaptureFromPath(screenshotPath, testCaseName));
+				// test.fail("Screenshot is attcahed below:"+ test.addScreenCaptureFromPath(screenshotPath, testCaseName));
+				test.fail("Screenshot is attcahed below:"+ test.addScreenCaptureFromPath(screenshotPath));
 
 			} catch (IOException e) {
 				log.error("This screenshot does not exist/corrupt to attach. Please check the stack trace below : ", e);
 			}
 		}
+		
+		// test.createNode("testing create node method.");
+		// test.info("testing info method.");
+		test.log(Status.FAIL, "Test Case is Failed.");
 	}
 
 	public void onTestSkipped(ITestResult result) {
