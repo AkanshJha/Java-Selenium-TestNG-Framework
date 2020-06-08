@@ -16,6 +16,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.appname.utilities.ExtentReporterNG;
+import com.appname.utilities.TestNG_Listener;
 
 /**
  * 
@@ -24,17 +26,33 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
  */
 public class TestNG_Listener implements ITestListener {
 	private Logger log = LogManager.getLogger(TestNG_Listener.class.getName());
-	ExtentReports extent = null;
+	static ExtentReports extent = null;
 	static ExtentTest test;
 	Object[] param = null;
 	Map<Object, Object> map = null;
 	
 	/**
-	 * 
+	 * While the Suite execution, it returns the current Test object.
+	 * And When a single class/Test is being executed, It creates new objects.
 	 * @return the current ExtentTest Object
 	 */
 	public static ExtentTest getExtentTestObject() {
+		if(test!=null) {
 		return test;
+		}
+		else {
+			extent = ExtentReporterNG.getExtentReport();
+			test = extent.createTest("Current Test Case");
+			return test;
+		}
+		
+	}
+
+	// for single test case/class execution and generating the report.
+	public static void flushExtent() {
+		TestNG_Listener tngl = new TestNG_Listener();
+		extent.flush();
+		tngl.log.debug("Extent Report, for current Test Case has been flushed.");
 	}
 
 	

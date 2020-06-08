@@ -22,6 +22,7 @@ import com.appname.utilities.ReadPropertiesUtils;
 import com.appname.utilities.TestNG_Listener;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.appname.utilities.BasicOperationsOnElements;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -185,5 +186,10 @@ public class BaseClass {
 		ExtentTest test = TestNG_Listener.getExtentTestObject();
 		test.log(status,message);
 		log.debug("message has been added to the extent report from the test case.");
+	}
+	
+	public void openApplicationURL() {
+		BasicOperationsOnElements op = new BasicOperationsOnElements();
+		op.openURL(applicationURL);
 	}
 }

@@ -48,6 +48,32 @@ public class BasicOperationsOnElements extends BaseClass {
 			writeToReport(Status.FAIL, "Could not locate the radio button with '" + getWebElementDetails(radioButton) + "'.");
 		}
 	}
+	
+	public void clickOnElement(WebElement elementToBeClicked) {
+		BaseClass bc = new BaseClass();
+		try {
+			if(elementToBeClicked.isDisplayed()) {
+				elementToBeClicked.click();
+				bc.writeToReport(Status.PASS, "Element with '"+getWebElementDetails(elementToBeClicked)+"' is clicked successfully.");
+			}
+			else {
+				bc.writeToReport(Status.FAIL, "Element with '"+getWebElementDetails(elementToBeClicked)+"' is not displayed. Please verify.");
+			}
+		}
+		catch(NoSuchElementException e) {
+			bc.writeToReport(Status.FAIL, "Element with '"+getWebElementDetails(elementToBeClicked)+"' does not exists.");
+		}
+	}
+	
+	public void openURL(String url) {
+		BaseClass bc = new BaseClass();
+		if(url.equals("") || url.isEmpty() || url == null) {
+			bc.writeToReport(Status.FAIL, "URL is empty. Please provide the valid URL.");
+			return;
+		}
+		BaseClass.driver.get(url);
+		bc.writeToReport(Status.PASS, "Application URL, '"+url+"' is opened in the selected browser.");
+	}
 
 	/**
 	 * @param element : the element, for which we want to pick the locator value details.
